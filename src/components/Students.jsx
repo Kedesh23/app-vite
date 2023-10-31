@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import axios from "axios";
 
 export default function Students() {
-    const url = "https://app-vite.vercel.app";
+    const url = "http://localhost:1337/api/students";
     const [data, setData] = useState([]); // Initialisation de l'état local avec un tableau vide
 
     useEffect(() => {
@@ -28,6 +28,7 @@ export default function Students() {
             <table>
                 <thead>
                     <tr className="">
+                        <th>Id</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>Age</th>
@@ -37,6 +38,7 @@ export default function Students() {
                 <tbody>
                     {data.map((student) => (
                         <tr key={student.id}>
+                            <td>{student.id}</td>
                             <td>{student.attributes.firstname}</td>
                             <td>{student.attributes.lastname}</td>
                             <td>{student.attributes.age}</td>

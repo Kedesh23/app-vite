@@ -16,7 +16,7 @@ export default function Login() {
         e.preventDefault();
         console.log(data);
         axios
-            .post("https://app-vite.vercel.app/", {data}, {
+            .post("http://localhost:1337/api/students", {data}, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
