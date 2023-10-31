@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import axios from "axios";
 
 export default function Students() {
-    const url = "http://localhost:1337/api/students";
+    const url = "https://app-vite.vercel.app";
     const [data, setData] = useState([]); // Initialisation de l'état local avec un tableau vide
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function Students() {
                 setData(data.data);
             }).catch((error) => {
                 console.log(error);
-                
+
             })
     }, []);
     console.log(data);
