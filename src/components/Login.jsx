@@ -1,22 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import "./Login.css";
 import axios from "axios";
 
 export default function Login() {
+
     const [data, setData] = useState({
         firstname: "",
         lastname: "",
         age: "",
-        sexe: ""
+        sexe: "",
+        classroom: ""
     });
+    const [classe, setClasse] = useState([]);
+
+    //Recuperation des classes
+    useEffect(() => {
+        axios.get("http://localhost:1337/api/classrooms")
+            .then(res => {
+                console.log(res.data)
+                setClasse(res.data.data)
+            })
+            .catch(error => console.log(error));
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(data);
         axios
-            .post("http://localhost:1337/api/students", {data}, {
+            .post("http://localhost:1337/api/students", { data }, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -34,6 +47,8 @@ export default function Login() {
         const { name, value } = e.target;
         setData({ ...data, [name]: value });
     };
+
+
 
     return (
         <main>
@@ -76,9 +91,24 @@ export default function Login() {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="sexe">Sexe</label>
-                        <input type="text" id="sexe" name="sexe" value={data.sexe} onChange={handleChange} />
+                    <div className="flex gap-5 justify-center">
+                        <div>
+                            <input type="radio" id="man" name="sexe" value="M" onChange={handleChange} />
+                            <label htmlFor="man">man</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="woman" name="sexe" value="F" onChange={handleChange} />
+                            <label htmlFor="woman">woman</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="classroom">Classroom</label>
+                        <select name="classeroom" id="class" onChange={handleChange}>
+                            {classe.map((school) =>(
+                                <option key={school.id}>{school.attributes.name_classroom}</option>
+                            ))}
+                        </select>
+
                     </div>
                     <button type="submit" className="p-[1em] bg-red-400 text-white rounded-md">
                         submit

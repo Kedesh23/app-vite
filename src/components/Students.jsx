@@ -31,6 +31,7 @@ export default function Students() {
                         <th>Id</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
+                        <th>Classroom</th>
                         <th>Age</th>
                         <th>Sexe</th>
                     </tr>
@@ -41,6 +42,7 @@ export default function Students() {
                             <td>{student.id}</td>
                             <td>{student.attributes.firstname}</td>
                             <td>{student.attributes.lastname}</td>
+                            <td>{student.attributes.classroom}</td>
                             <td>{student.attributes.age}</td>
                             <td>{student.attributes.sexe}</td>
                         </tr>
