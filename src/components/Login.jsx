@@ -102,8 +102,8 @@ export default function Login() {
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="classroom">Classroom</label>
-                        <select name="classeroom" id="class" onChange={handleChange}>
+                        <label htmlFor="class">Classroom</label>
+                        <select name="classroom" id="class" onChange={handleChange}>
                             {classe.map((school) =>(
                                 <option key={school.id}>{school.attributes.name_classroom}</option>
                             ))}
