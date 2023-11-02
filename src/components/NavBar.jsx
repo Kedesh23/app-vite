@@ -2,6 +2,7 @@ import react from "react";
 import { NavLink } from "react-router-dom";
 import Students from "./Students";
 import Login from "./Login";
+import Classroom from "./Classroom";
 
 export default function NavBar() {
     return (
@@ -17,6 +18,14 @@ export default function NavBar() {
 
                 <NavLink to='/login'>
                     <li>login</li>
+                </NavLink>
+
+                <NavLink to='/classroom'>
+                    <li>classroom</li>
+                </NavLink>
+
+                <NavLink to='/classe'>
+                    <li>classe</li>
                 </NavLink>
             </ul>
         </nav>

@@ -3,6 +3,8 @@ import Home from './components/HomePage';
 import About from './components/About';
 import Login from './components/Login';
 import Students from './components/Students';
+import Classroom from './components/Classroom';
+import PostClassroom from './components/PostClassroom';
 
 function App() {
 
@@ -23,6 +25,14 @@ function App() {
 
         <Route path='/students'
           element={<Students />}
+        />
+
+        <Route path='/classroom'
+          element={<Classroom />}
+        />
+
+        <Route path='/classe'
+          element={<PostClassroom />}
         />
       </Routes>
     </BrowserRouter>
