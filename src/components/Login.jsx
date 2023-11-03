@@ -93,13 +93,13 @@ export default function Login() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">ville: </label>
+                        <label htmlFor="email">email: </label>
                         <input
                             type="email"
                             className="p-[.5em] rounded-md"
                             name="email"
                             value={data.email}
-                            id="email"
+                            id="ville"
                             placeholder="24"
                             onChange={handleChange}
                         />
@@ -113,15 +113,6 @@ export default function Login() {
                             <input type="radio" id="woman" name="sexe" value="F" onChange={handleChange} />
                             <label htmlFor="woman">woman</label>
                         </div>
-                    </div>
-                    <div>
-                        <label htmlFor="class">Classroom</label>
-                        <select name="classroom" id="class" onChange={handleChange}>
-                            {classe.map((school) =>(
-                                <option key={school.id}>{school.attributes.name_classroom}</option>
-                            ))}
-                        </select>
-
                     </div>
                     <button type="submit" className="p-[1em] bg-red-400 text-white rounded-md">
                         submit
