@@ -3,9 +3,10 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { ClipLoader } from "react-spinners";
 import Button from "./Button";
+import "./Students.css";
 
 export default function Students() {
-    const url = "http://192.168.1.140:2500/api/eleves";
+    const url = "https://backend-ecole-241.onrender.com/api/eleves";
     const [data, setData] = useState([]); // Initialisation de l'état local avec un tableau vide
     const [loading, setLoading] = useState(false);
 
@@ -33,14 +34,14 @@ export default function Students() {
             <NavBar />
             {
                  loading ?
-                 <ClipLoader color={'#BD2D1B'} loading = {loading} size = {150} /> :
+                 <ClipLoader color={'#BD2D1B'} loading = {loading} size = {150}/> :
                 <main>
                 <h1 className="font-bold text-3xl text-center flex flex-col justify-center py-[3em]">Liste des étudiants</h1>
                 {/* {data.map((student) => {
                     return <p key={student.id}>{student.nom}</p>
                 })} */}
 
-                    <table>
+                    <table className="my-[3em]">
                         <thead>
                             <tr className="">
                                 <th>Id</th>

@@ -5,7 +5,7 @@ import Button from './Button';
 
 export default function Classroom(){
     const [data, setData] = useState([]);
-    const url = "http://192.168.1.140:2500/api/classes";
+    const url = "https://backend-ecole-241.onrender.com/api/classes";
     useEffect(() => {
         fetch(url)
             .then((res) => res.json())
@@ -20,7 +20,7 @@ export default function Classroom(){
     return (
         <main>
             <NavBar/>
-            <table>
+            <table className='my-[3em]'>
                 <thead>
                     <tr>
                         <th>Classroom</th>
@@ -34,7 +34,7 @@ export default function Classroom(){
                     ))}
                 </tbody>
             </table>
-            <Button to="/Login" className="my-[3em] bg-blue-300 px-[2em] py-[.5em] rounded-sm font-bold my-[3em]" title="Creer une classe"/>
+            <Button to="/Login" className="my-[3em] mx-auto bg-blue-300 border-[3px] border-black px-[2em] py-[.5em] rounded-sm font-bold my-[3em]" title="Creer une classe"/>
         </main>
     )
 }

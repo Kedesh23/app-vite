@@ -1,0 +1,20 @@
+table{
+    margin:auto;
+}
+
+table thead, tbody, tr th, td{
+    border: 1px solid black;
+    padding: 1em;
+}
+
+
+table thead tr th{
+    background-color: blue;
+    text-align: center;
+    color: white;
+}
+
+table tbody tr td{
+    font-weight: bold;
+    text-align: center;
+}

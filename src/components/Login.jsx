@@ -7,17 +7,18 @@ import axios from "axios";
 export default function Login() {
 
     const [data, setData] = useState({
-        firstname: "",
-        lastname: "",
-        age: "",
+        nom: "",
+        prenom: "",
         sexe: "",
-        classroom: ""
+        ville: "",
+        email: "",
+
     });
     const [classe, setClasse] = useState([]);
 
     //Recuperation des classes
     useEffect(() => {
-        axios.get("http://localhost:1337/api/classrooms")
+        axios.get("https://backend-ecole-241.onrender.com/api/eleves")
             .then(res => {
                 console.log(res.data)
                 setClasse(res.data.data)
@@ -29,7 +30,7 @@ export default function Login() {
         e.preventDefault();
         console.log(data);
         axios
-            .post("http://localhost:1337/api/students", { data }, {
+            .post("https://backend-ecole-241.onrender.com/api/eleves", { data }, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -56,37 +57,49 @@ export default function Login() {
             <div className="flex justify-center items-center my-[3em]">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-10 bg-blue-200">
                     <div className="form-group">
-                        <label htmlFor="firstname">firstname: </label>
+                        <label htmlFor="nom">nom: </label>
                         <input
                             type="text"
                             className="p-[.5em] rounded-md"
-                            name="firstname"
-                            value={data.firstname}
-                            id="firstname"
+                            name="nom"
+                            value={data.nom}
+                            id="nom"
                             placeholder="John"
                             onChange={handleChange}
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="lastname">lastname: </label>
+                        <label htmlFor="prenom">prenom: </label>
                         <input
                             type="text"
                             className="p-[.5em] rounded-md"
-                            name="lastname"
-                            value={data.lastname}
-                            id="lastname"
+                            name="prenom"
+                            value={data.prenom}
+                            id="prenom"
                             placeholder="Doe"
                             onChange={handleChange}
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="age">age: </label>
+                        <label htmlFor="ville">ville: </label>
                         <input
                             type="text"
                             className="p-[.5em] rounded-md"
                             name="age"
-                            value={data.age}
-                            id="age"
+                            value={data.ville}
+                            id="ville"
+                            placeholder="24"
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="email">ville: </label>
+                        <input
+                            type="email"
+                            className="p-[.5em] rounded-md"
+                            name="email"
+                            value={data.email}
+                            id="email"
                             placeholder="24"
                             onChange={handleChange}
                         />

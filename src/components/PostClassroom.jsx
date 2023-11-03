@@ -6,9 +6,9 @@ import NavBar from './NavBar';
 
 export default function PostClassroom() {
     const [data, setData] = useState({
-        classe: ""
+        libelle: ""
 })
-    const url = "http://192.168.1.140:2500/api/classes";
+    const url = "https://backend-ecole-241.onrender.com/api/classes";
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,7 +37,7 @@ export default function PostClassroom() {
             <main>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="room">Classe</label>
-                    <input type="text" placeholder="creer une classe" name="classe" id="room" onChange={handleChange}></input>
+                    <input type="text" placeholder="creer une classe" name="libelle" id="room" onChange={handleChange}></input>
                     <button type="submit" className="p-[1em] bg-red-400 text-white rounded-md">submit</button>
                 </form>
             </main>
